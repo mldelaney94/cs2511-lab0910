@@ -1,0 +1,17 @@
+package refactoring.solution5;
+
+public class ChildrensMovie implements MovieType {
+
+	@Override
+	public double getCharge(Rental r) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getFrequentRenterPoints(int _daysRented) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

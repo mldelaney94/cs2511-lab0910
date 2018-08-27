@@ -5,27 +5,30 @@ import java.util.List;
 
 public class Customer {
 	
-    private String name;
-    private List<Rental> rentals;
+	//added freqRenterPoints as class variable
+    private String _name;
+    private List<Rental> _rentals;
+    private int _freqRenterPoints;
     
     public Customer (String name) {
-        this.name = name;
-        this.rentals = new ArrayList<>();
+        this._name = name;
+        this._rentals = new ArrayList<>();
+        this._freqRenterPoints = 0;
     }
 	
-	public void addRental(Rental rental) {
-		rentals.add(rental);
+	public void addRental(Movie movie, int numDays) {
+		_rentals.add(new Rental(movie, numDays));
 	}
 	
 	public String getName (){
-		return name;
+		return _name;
 	}
 	
 	public String statement() {
 		
 		String result = "Rental Record for " + getName() + "\n";
 		
-		for (Rental r: rentals) {
+		for (Rental r: _rentals) {
 			//show figures for this rental
 			result += "\t" + r.getMovie().getTitle() + "\t" + 	String.valueOf(r.getCharge()) + "\n";
 		}
@@ -33,19 +36,15 @@ public class Customer {
 		/* Initial code for implemented the new requirement - frequent renter points
 		 * Apply a series of refactoring techniques to improve the design
 		 */
-		int frequentRenterPoints = 0;
 		// add frequent renter points
-		for (Rental r: rentals) {
-			  frequentRenterPoints ++;
-			  if ((r.getMovie().getPriceCode() == Movie.NEW_RELEASE) && (r.getDaysRented() > 1)) { 
-					frequentRenterPoints++;
-	  		  }
-		}			
+		for (Rental r: _rentals) {
+			 _freqRenterPoints += r.getFrequentRenterPoints();
+		}
 		
 		//add footer lines
 		result += "Amount owed is " + String.valueOf(getTotalCharge()) +	"\n";
 		// add footer line for frequent-renter points
-		result += "You earned " + String.valueOf(frequentRenterPoints) 	+ " frequent renter points";
+		result += "You earned " + String.valueOf(_freqRenterPoints) 	+ " frequent renter points";
 		return result;
 	}
 
@@ -65,10 +64,9 @@ public class Customer {
 	
 	private double getTotalCharge() {
 		double result = 0;
-		for (Rental r: rentals) {
+		for (Rental r: _rentals) {
 			result += r.getCharge();
 		}
 		return result;
 	}
-
 }

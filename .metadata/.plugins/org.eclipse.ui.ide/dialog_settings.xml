@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/import/reed/2/z3463382/comp2511/lab03/EnrolSys"/>
+		<item value="/tmp_amd/reed/export/reed/2/z3463382/comp2511/lab03/EnrolSys/src"/>
+		<item value="/import/reed/2/z3463382/comp2511/lab03"/>
+		<item value="/import/reed/2/z3463382/comp2511/lab0405"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+	</section>
+</section>

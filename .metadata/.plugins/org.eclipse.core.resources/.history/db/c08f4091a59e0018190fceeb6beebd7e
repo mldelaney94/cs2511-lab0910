@@ -1,0 +1,17 @@
+package com.lab03;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+public class CourseOffering {
+    private String code;
+    private ArrayList<Lab> labTimes;
+    private ArrayList<Tutorial> tuteTimes;
+    private ArrayList<Lecture> lecTimes;
+
+    public String getCode () {
+        return this.code;
+    }
+
+
+}

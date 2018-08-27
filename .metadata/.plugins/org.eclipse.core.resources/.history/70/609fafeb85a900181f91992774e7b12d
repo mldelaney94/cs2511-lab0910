@@ -1,0 +1,6 @@
+package refactoring.solution5;
+
+public interface MovieType {
+	public double getCharge (Rental r);
+	public int getFrequentRenterPoints (int _daysRented);
+}

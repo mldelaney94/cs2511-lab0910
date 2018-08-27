@@ -1,0 +1,12 @@
+package refactoring.solution5;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Customer barry = new Customer("Barry");
+		Customer charles = new Customer("Charles"); 
+		
+		Movie lion_King = new Movie ("Lion King", new ChildrensMovie())
+	}
+
+}

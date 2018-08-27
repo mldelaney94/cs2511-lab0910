@@ -1,0 +1,19 @@
+package refactoring.solution5;
+
+public class ClassicMovie implements MovieType {
+
+	@Override
+	public double getCharge(int _daysRented) {
+		if (_daysRented == 5) {
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public int getFrequentRenterPoints(int _daysRented) {
+		// TODO Auto-generated method stub
+		return 3;
+	}
+
+}

@@ -6,57 +6,34 @@ package refactoring.solution5;
  * use the getting method. However, the constructors do access the price code 
  */
 public class Movie {
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
-
-	private String title;
-	private int priceCode;
+	private MovieType _movieType;
+	//rename title to _title and priceCode to _priceCode
+	private String _title;
 	
-	public Movie(String title, int priceCode) {
-		this.title = title;
-		setPriceCode(priceCode);
+	//remove useless set and getter calls in class
+	public Movie(String title, MovieType movieType) {
+		this._title = title;
+		this._movieType = movieType;
 	}
 	
-	public int getPriceCode() {
-		return priceCode;
-	}
-	
-	public void setPriceCode(int arg) {
-		priceCode = arg;
-	}
 	public String getTitle (){
-		return title;
-	}
-
-	// Refactor method - refactor getCharge() to class Movie
-	double getCharge(int _daysRented) {
-		double thisAmount = 0;
-		int priceCode = getPriceCode();
-		switch (priceCode) {
-			case Movie.REGULAR:
-				thisAmount += 2;
-				if (_daysRented > 2)
-					thisAmount += (_daysRented - 2) * 1.5;
-			break;
-			case Movie.NEW_RELEASE:
-				thisAmount += _daysRented * 3;
-			break;
-			case Movie.CHILDRENS:
-				thisAmount += 1.5;
-				if (_daysRented > 3)
-					thisAmount += (_daysRented - 3) * 1.5;
-			break;
-		}
-		return thisAmount;
+		return _title;
 	}
 	
-	int getFrequentRenterPoints(int _daysRented) {
-		
-		if ((getPriceCode() == Movie.NEW_RELEASE) && (_daysRented > 1)) 
-			return 2;
-		else 
-			return 1;	
+	public MovieType getType () {
+		return this._movieType;
+	}
+	
+	public void setMovieType (MovieType newType) {
+		this._movieType = newType;
+	}
+
+	public double getCharge(int _daysRented) {
+		return _movieType.getCharge(_daysRented);
+	}
+	
+	public int getFrequentRenterPoints(int _daysRented) {
+		return _movieType.getFrequentRenterPoints(_daysRented);
 	}
 
 	
