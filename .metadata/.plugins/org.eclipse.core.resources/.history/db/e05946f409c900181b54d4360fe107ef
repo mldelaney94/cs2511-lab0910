@@ -1,0 +1,13 @@
+package refactoring.solution5;
+
+public class ClassicMovie implements MovieType {
+	private double charge = 2.50;
+	private double overCharge = 0.50;
+	private int period = 3;
+	
+	@Override
+	public double getCharge(int _daysRented) {
+		return (_daysRented / 5);
+	}
+
+}

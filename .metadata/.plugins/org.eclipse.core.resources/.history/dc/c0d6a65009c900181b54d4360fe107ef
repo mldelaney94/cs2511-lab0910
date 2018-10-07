@@ -1,0 +1,21 @@
+package refactoring.solution5;
+
+public class RegularMovie implements MovieType {
+	private int charge = 3;
+	private int period = 3;
+	private int overCharge = 1;
+	-charge:Double
+	-overCharge:Double
+	-period:int
+	@Override
+	public double getCharge(int _daysRented) {
+		return charge * _daysRented;
+	}
+
+
+	@Override
+	public int getFrequentRenterPoints(int _daysRented) {
+		return 2;
+	}
+
+}

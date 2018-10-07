@@ -1,0 +1,18 @@
+package refactoring.solution5;
+
+public class NewReleaseMovie implements MovieType {
+	private double charge = 3.00;
+	private double overCharge = 1.00;
+	private int period = 3;
+	@Override
+	public double getCharge(int _daysRented) {
+		return charge * _daysRented;
+	}
+
+
+	@Override
+	public int getFrequentRenterPoints(int _daysRented) {
+		return 5;
+	}
+
+}
